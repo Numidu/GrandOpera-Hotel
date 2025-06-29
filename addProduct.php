@@ -9,11 +9,11 @@
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
   <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-2xl">
     <h2 class="text-2xl font-bold mb-6 text-center text-blue-600">Add Hotel Room</h2>
-    <form action="submit_room.php" method="post" enctype="multipart/form-data" class="space-y-5">
+    <form  method="post" enctype="multipart/form-data" class="">
       
       <div>
         <label for="room_name" class="block text-sm font-medium text-gray-700">Room Name/Type</label>
-        <input type="text" id="room_name" name="room_name" placeholder="e.g., Deluxe Double Room" required class="mt-1 w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <input type="text" id="room_name" name="room_name" placeholder="e.g., Deluxe Double Room" required class="mt-5 w-full rounded-md border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
       </div>
 
       <div>
@@ -23,7 +23,34 @@
 
       <div>
         <label for="photos" class="block text-sm font-medium text-gray-700">Room Photos</label>
-        <input type="file" id="photos" name="photos[]" multiple accept="image/*" required class="mt-1 w-full text-sm text-gray-600">
+        
+        <div class="flex flex-wrap gap-4 mt-4">
+  <div class="w-1/4">
+    <img src="resources/noimage.png" class="rounded border border-gray-300" id="i0" />
+  </div>
+  <div class="w-1/4">
+    <img src="resources/noimage.png" class="rounded border border-gray-300" id="i1" />
+  </div>
+  <div class="w-1/4">
+    <img src="resources/noimage.png" class="rounded border border-gray-300" id="i2" />
+  </div>
+  <div class="w-1/4">
+    <img src="resources/noimage.png" class="rounded border border-gray-300" id="i3" />
+  </div>
+  <div class="w-1/4">
+    <img src="resources/noimage.png" class="rounded border border-gray-300" id="i4" />
+  </div>
+</div>
+
+<div class="mt-6">
+  <input type="file" multiple id="imageUploader" class="hidden" />
+  <label for="imageUploader" onclick="UploadImages()" class="inline-block px-4 py-2 bg-blue-600 text-white rounded cursor-pointer hover:bg-blue-700">
+    Upload Images
+  </label>
+</div>
+
+
+
       </div>
 
       <div>
@@ -54,12 +81,13 @@
       <p id="mess"></p>
 
       <div class="text-center">
-        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition duration-200">
+        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition duration-200" onclick="Product()" >
           Add Details
         </button>
       </div>
 
     </form>
   </div>
+   <script src="script.js"></script>
 </body>
 </html>

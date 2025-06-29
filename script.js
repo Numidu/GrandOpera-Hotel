@@ -81,9 +81,11 @@ function Product() {
   var price = document.getElementById("price").value;
   var capacity = document.getElementById("capacity").value;
   var bedtype = document.getElementById("bed_type").value;
-  var room = document.getElementById("room_siz").value;
+  var room = document.getElementById("room_size").value;
   var facility = document.getElementById("facilities").value;
   var date = document.getElementById("availability").value;
+
+  var image = document.getElementById("imageUploader");
 
   var form = new FormData();
   form.append("n", name);
@@ -94,6 +96,12 @@ function Product() {
   form.append("f", facility);
   form.append("d", date);
 
+  var fileCount = image.files.length;
+  for (var x = 0; x < fileCount; x++) {
+    form.append("image[]", image.files[x]); // append with same name as array
+  }
+
+  var request = new XMLHttpRequest(); // create request
   request.onreadystatechange = function () {
     if (request.readyState == 4 && request.status == 200) {
       var res = request.responseText;
@@ -101,6 +109,30 @@ function Product() {
     }
   };
 
-  form.open("post", "addProductProcess.php", true);
-  form.send(form);
+  request.open("POST", "addProductProcess.php", true);
+  request.send(form);
+}
+
+function UploadImages() {
+  console.log("hii");
+  var imageInput = document.getElementById("imageUploader");
+
+  imageInput.onchange = function () {
+    var fileCount = imageInput.files.length;
+    console.log(fileCount);
+
+    if (fileCount <= 5) {
+      for (var i = 0; i < fileCount; i++) {
+        var file = imageInput.files[i];
+        var url = URL.createObjectURL(file);
+        var imgElement = document.getElementById("i" + i);
+        console.log("i" + i);
+        if (imgElement) {
+          imgElement.src = url;
+        }
+      }
+    } else {
+      alert("Please upload 5 or fewer images.");
+    }
+  };
 }
