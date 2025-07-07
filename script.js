@@ -136,3 +136,11 @@ function UploadImages() {
     }
   };
 }
+
+function viewRoom() {
+  alert("hell");
+}
+
+function hello() {
+  console.log("hellow");
+}

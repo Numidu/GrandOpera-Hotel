@@ -1,4 +1,5 @@
 <?php  include ("Connection1.php");
+$id=$_POST["id"];
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +18,7 @@
       <div class="flex lg:flex-col gap-4 w-screen   lg:w-1/4">
         <?php
           
-          $sql = "SELECT path FROM product_image WHERE product_id = 4 limit 4";
+          $sql = "SELECT path FROM product_image WHERE product_id = $id limit 4";
           $result = mysqli_query($conn, $sql);
 
           $images = [];
