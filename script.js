@@ -97,7 +97,7 @@ function Product() {
   form.append("d", date);
 
   var fileCount = image.files.length;
-  for (var x = 0; x < fileCount; x++) {
+  for (var x = 0; x <= fileCount; x++) {
     form.append("image[]", image.files[x]); // append with same name as array
   }
 
