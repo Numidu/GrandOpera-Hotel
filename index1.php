@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script> 
-  <script src="script.js"></script>
+
 </head>
 <body>
 <?php
@@ -31,7 +31,7 @@
          <div class='p-4'>
             <h2 class='text-lg font-bold text-gray-800 mb-2'>{$row['name']}</h2>
             
-           <button onclick='hellow()' class='mt-3 bg-purple-600 text-white px-3 py-1 rounded hover:bg-purple-700'>
+           <button onclick='ViewRoom({$row['id']})' class='mt-3 bg-purple-600 text-white px-3 py-1 rounded hover:bg-purple-700'>
                View
             </button>
          </div>
@@ -42,7 +42,6 @@
          </div>";
 ?>
  
-<button onclick=hellow()>hiii</button>
 
 <div class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
   <div class="bg-white p-8 rounded shadow-md w-full max-w-md space-y-4">
@@ -85,9 +84,27 @@
   </div>
 </div>
 
+
   <script src="script.js"></script>
 </body>
 
 
 
 </html>
+
+<script>
+  function ViewRoom(id) {
+   
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if ((request.readyState == 4) & (request.status == 200)) {
+      var response = request.responseText;
+      //alert(response);
+   window.location.href = "roomPage.php?id=" + id;
+    }
+  };
+  request.open("GET", "roomPage.php?id=" + id, true);
+  request.send();
+}
+
+ </script> 

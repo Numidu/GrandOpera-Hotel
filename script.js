@@ -137,19 +137,6 @@ function UploadImages() {
   };
 }
 
-function viewRoom(id) {
-  var request = new XMLHttpRequest();
-  request.onreadystatechange = function () {
-    if ((request.readyState == 4) & (request.status == 200)) {
-      var response = request.responseText;
-      alert(response);
-      //window.location.reload();
-    }
-  };
-  request.open("GET", "roomPage.php?id=" + id, true);
-  request.send();
-}
-
-function hellow() {
+function Hellow() {
   console.log("hellow");
 }
