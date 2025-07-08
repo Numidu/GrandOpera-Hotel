@@ -137,10 +137,19 @@ function UploadImages() {
   };
 }
 
-function viewRoom() {
-  alert("hell");
+function viewRoom(id) {
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if ((request.readyState == 4) & (request.status == 200)) {
+      var response = request.responseText;
+      alert(response);
+      //window.location.reload();
+    }
+  };
+  request.open("GET", "roomPage.php?id=" + id, true);
+  request.send();
 }
 
-function hello() {
+function hellow() {
   console.log("hellow");
 }

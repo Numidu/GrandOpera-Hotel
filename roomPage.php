@@ -1,5 +1,5 @@
 <?php  include ("Connection1.php");
-$id=$_POST["id"];
+$id=$_GET["id"];
 ?>
 
 <!DOCTYPE html>

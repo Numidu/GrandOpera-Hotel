@@ -17,12 +17,12 @@
    $sql = "SELECT product.id, product.name, product_image.path AS image
            FROM product 
            JOIN product_image ON product.id = product_image.product_id 
-           GROUP BY product.id"; // Optional: limits to 1 image per product
+           GROUP BY product.id";
 
    $result = mysqli_query($conn, $sql);
 
    echo "<div class='overflow-x-auto'>
-           <div class='flex gap-4 p-4'>"; // Scroll panel with card row
+           <div class='flex gap-4 p-4'>"; 
 
    while ($row = $result->fetch_assoc()) {
       echo "
@@ -31,8 +31,7 @@
          <div class='p-4'>
             <h2 class='text-lg font-bold text-gray-800 mb-2'>{$row['name']}</h2>
             
-           <button onclick='viewRoom({$row['id']})'
-                    class='mt-3 bg-purple-600 text-white px-3 py-1 rounded hover:bg-purple-700'>
+           <button onclick='hellow()' class='mt-3 bg-purple-600 text-white px-3 py-1 rounded hover:bg-purple-700'>
                View
             </button>
          </div>
@@ -42,10 +41,8 @@
    echo "  </div>
          </div>";
 ?>
-  <button onclick=hello()>
-               View
-            </button>
-
+ 
+<button onclick=hellow()>hiii</button>
 
 <div class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
   <div class="bg-white p-8 rounded shadow-md w-full max-w-md space-y-4">
